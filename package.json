@@ -15,6 +15,7 @@
     "@supabase/supabase-js": "^1.29.4",
     "apollo-server-express": "^3.6.2",
     "cors": "^2.8.5",
+    "express": "^4.17.2",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
     "ksuid": "^2.0.0",

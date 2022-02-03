@@ -1,14 +1,23 @@
-import { api } from "@serverless/cloud";
 import cors from "cors";
-import { graphqlHandler } from './src/graphql/apollo';
+import { applyGraphqlToExpressApp } from './src/graphql/apollo';
+import express from "express";
 
-api.use(cors());
+const app = express();
+ 
+// Enable express body parsing middleware
+app.use(express.json());
+app.use(cors());
+
+
+// Import the http interface and wrap your initialized app
+import { http } from "@serverless/cloud";
+http.use(app);
 
 /// GQL (this is the real meat of the API):
-api.use(graphqlHandler);
+applyGraphqlToExpressApp(app);
 
-api.get("/health", async (req, res) => {
-  res.send({ status: "ok" });
+app.get("/pinger", async (req, res) => {
+  res.send({ status: "ponger" });
 });
 
 
