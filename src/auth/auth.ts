@@ -1,12 +1,27 @@
 import { params } from "@serverless/cloud";
 import crypto from "crypto";
-import { getUserForSub, createUser } from "./data";
+import { getUserForSub, createUser } from "../data";
 import util from "util";
 import jwt from "jsonwebtoken";
-
-const TOKEN_SECRET = params.TOKEN_SECRET || "replace-me";
+import { SUPABASE_JWT_SECRET } from '../env';
+import { Request, Response, NextFunction } from 'express';
 
 const pbkdf2 = util.promisify(crypto.pbkdf2);
+const TOKEN_SECRET = SUPABASE_JWT_SECRET;
+
+/// Service for authenticating users
+export namespace Auth {
+  export const login = (req: Request<{}, {}, {bob: string}>, username: string, password: string) => {
+    req.body.bob
+  }
+}
+
+/// Middleware for authenticating users
+export namespace AuthMiddleware {
+  export const login = (req: Request, res: Response, next: NextFunction) => {
+    
+  }
+}
 
 export function login() {
   return async (req, res, next) => {
@@ -96,6 +111,7 @@ async function createUserToken(user) {
   );
 }
 
+// TODO: type this stuff:
 export function auth() {
   return async function (req, res, next) {
     try {

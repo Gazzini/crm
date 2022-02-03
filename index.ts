@@ -1,14 +1,20 @@
 import { api } from "@serverless/cloud";
 import cors from "cors";
-
-import * as data from "./lib/data";
-import { login, register, auth } from "./lib/auth";
+import { graphqlHandler } from './src/graphql/apollo';
 
 api.use(cors());
+
+/// GQL (this is the real meat of the API):
+api.use(graphqlHandler);
 
 api.get("/health", async (req, res) => {
   res.send({ status: "ok" });
 });
+
+
+/**
+ *
+ 
 
 api.post("/login", login(), async function (req: any, res: any) {
   res.send({
@@ -98,3 +104,5 @@ api.get("/users", async (req, res) => {
   const users = await data.listAllUsers();
   res.json(users);
 });
+
+ */
