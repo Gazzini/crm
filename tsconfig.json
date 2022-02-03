@@ -1,6 +1,21 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "noEmit": true,
+    "baseUrl": "./src",
+    "rootDir": "./",
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+        "~/*": [
+            "*"
+        ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
