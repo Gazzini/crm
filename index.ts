@@ -1,15 +1,44 @@
-import { api } from "@serverless/cloud";
+import { http } from "@serverless/cloud";
 import cors from "cors";
+import { applyGraphqlToExpressApp } from './src/graphql/apollo';
+import express from "express";
+import cookieParser from "cookie-parser";
 
-import * as data from "./lib/data";
-import { login, register, auth } from "./lib/auth";
+const app = express();
+ 
+/****************************************
+ * standard Express middleware
+/****************************************/
+// Enable requests from ~anywhere, try to ignore CORS:
+app.options('*', cors({ credentials: true, origin: true }));
+app.use(cors({ credentials: true, origin: true }));
+// Parse req.body as JSON:
+app.use(express.json());
+// Deserialize those cookies:
+app.use(cookieParser());
 
-api.use(cors());
+/****************************************
+ * Serverless Cloud magic
+/****************************************/
+// Wrangle the express app into something they can serve:
+http.use(app);
 
-api.get("/health", async (req, res) => {
-  res.send({ status: "ok" });
+/****************************************
+ * Apollo GraphQL attachment
+/****************************************/
+// This basically says app.post('/graphql', graphQLHandler);
+applyGraphqlToExpressApp(app);
+
+/****************************************
+ * fun bonus routes:
+/****************************************/
+app.get("/pinger", async (req, res) => {
+  res.send({ status: "ponger" });
 });
 
+
+/**
+ *
 api.post("/login", login(), async function (req: any, res: any) {
   res.send({
     token: req.token,
@@ -98,3 +127,5 @@ api.get("/users", async (req, res) => {
   const users = await data.listAllUsers();
   res.json(users);
 });
+
+ */
