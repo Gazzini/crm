@@ -1,5 +1,5 @@
 import PrismaClientLib from '@prisma/client'
-import { SUPABASE_DB_STRING } from 'env';
+import { SUPABASE_DB_STRING } from '../env';
 
 export namespace PeopleRepo {
     const prisma = new PrismaClientLib.PrismaClient({datasources: {
