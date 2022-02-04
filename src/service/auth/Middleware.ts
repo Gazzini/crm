@@ -6,6 +6,7 @@ import { JWT } from "./JWTService";
 
 export namespace AuthMiddleware {
     export const EnrichReqWithUserId = (req: CustomRequest, res: Response, next: NextFunction) => {
+        delete req.userId;
         const encodedToken = CookieService.getJWTCookie(req);
         if (encodedToken) {
             const tokenPayload = JWT.verify(encodedToken);
