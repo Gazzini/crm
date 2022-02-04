@@ -5,6 +5,7 @@ type Query {
     version: String!
     hello: String!
     me: String
+    peopleIds: [Int!]!
 }
 type Mutation {
     goodbye: String!

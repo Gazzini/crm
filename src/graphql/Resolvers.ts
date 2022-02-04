@@ -1,3 +1,4 @@
+import { PeopleRepo } from '../repo/PeopleRepo';
 import { Accounts } from '../handler/Accounts';
 import { Resolvers } from './generated/resolvers-types';
 import { GQLContext } from './GQLContext';
@@ -8,6 +9,7 @@ export const resolvers: Resolvers<GQLContext> = {
         version: () => '1.0',
         hello: () => 'World!',
         me: (_, __, ctx) => Accounts.getUserId({ ctx }),
+        peopleIds: async () => await PeopleRepo.getAll(),
     },
     Mutation: {
         goodbye: () => 'Cruel world!',

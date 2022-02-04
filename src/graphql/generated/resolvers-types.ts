@@ -38,6 +38,7 @@ export type Query = {
   __typename?: 'Query';
   hello: Scalars['String'];
   me: Maybe<Scalars['String']>;
+  peopleIds: Array<Scalars['Int']>;
   version: Scalars['String'];
 };
 
@@ -111,6 +112,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  Int: ResolverTypeWrapper<Scalars['Int']>;
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
@@ -119,6 +121,7 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
+  Int: Scalars['Int'];
   Mutation: {};
   Query: {};
   String: Scalars['String'];
@@ -133,6 +136,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   hello: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   me: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  peopleIds: Resolver<Array<ResolversTypes['Int']>, ParentType, ContextType>;
   version: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 

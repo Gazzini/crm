@@ -6,6 +6,8 @@ export const SUPABASE_URL = params.SUPABASE_URL as string;
 export const SUPABASE_KEY_ANON = params.SUPABASE_KEY_ANON as string;
 export const SUPABASE_JWT_SECRET = params.SUPABASE_JWT_SECRET as string;
 
+export const SUPABASE_DB_STRING = params.SUPABASE_DB_STRING as string;
+
 // Is this too much logic for a "dumb" file like this? meh.
 export const CLOUD_URL = Util.removePrefix(params.CLOUD_URL as string, 'https://');
 export const INSTANCE_NAME = params.INSTANCE_NAME as string;
