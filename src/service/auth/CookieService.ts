@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { INSTANCE_NAME, CLOUD_URL, DOMAIN_HOST_NAME } from "../env";
+import { INSTANCE_NAME, CLOUD_URL, DOMAIN_HOST_NAME } from "../../env";
 
 export namespace CookieService {
     export const COOKIE_NAME_JWT = 'jwt';

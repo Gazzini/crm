@@ -1,7 +1,7 @@
 import { ApolloServer } from 'apollo-server-express';
 import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
-import schema from './schema';
-import { resolvers } from './resolvers';
+import schema from './Schema';
+import { resolvers } from './Resolvers';
 import { Express } from "express";
 import { GQLContext } from './GQLContext';
 
@@ -13,6 +13,7 @@ export const applyGraphqlToExpressApp = async (app: Express) => {
     const server = new ApolloServer<GQLContext>({
         typeDefs: schema,
         resolvers,
+        // TODO: more explicit typing here?
         context: ({ req, res }) => {
             return { req, res };
         },

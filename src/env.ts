@@ -1,5 +1,5 @@
 import { params } from '@serverless/cloud';
-import { Util } from './Util';
+import { Util } from './service/Util';
 
 /// Serverless Cloud Params for this app:
 export const SUPABASE_URL = params.SUPABASE_URL as string;

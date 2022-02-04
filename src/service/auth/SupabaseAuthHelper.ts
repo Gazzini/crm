@@ -1,5 +1,5 @@
 import { ApiError, createClient, Session, SupabaseClient, User } from '@supabase/supabase-js';
-import { SUPABASE_URL, SUPABASE_KEY_ANON } from '../env';
+import { SUPABASE_URL, SUPABASE_KEY_ANON } from '../../env';
 
 
 export namespace SB {

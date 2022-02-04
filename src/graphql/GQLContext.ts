@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-interface CustomRequest extends Request {
+export interface CustomRequest extends Request {
     /// For logged in users, we'll set this string in our middleware
     userId?: string;
 }

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { SUPABASE_JWT_SECRET } from '../env';
+import { SUPABASE_JWT_SECRET } from '../../env';
 
 /// We keep our JWTs simple around here:
 export interface JWTPayload {

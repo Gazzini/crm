@@ -1,10 +1,10 @@
 import { GQLContext } from "../graphql/GQLContext";
-import { CookieService } from "./CookieService";
-import { JWT } from "./JWTService";
-import { SB } from "./SupabaseAuthHelper";
+import { CookieService } from "../service/auth/CookieService";
+import { JWT } from "../service/auth/JWTService";
+import { SB } from "../service/auth/SupabaseAuthHelper";
 
 
-export namespace AccountService {
+export namespace Accounts {
     export const registerUser = async (info: {
         username: string;
         email: string;
@@ -43,7 +43,6 @@ export namespace AccountService {
     export const getUserId = async (info: {
         ctx: GQLContext
     }): Promise<string | null> => {
-        const encodedToken = CookieService.getJWTCookie(info.ctx.req);
-        return JWT.verify(encodedToken).userId;
+        return info.ctx.req.userId ?? null;
     }
 }
