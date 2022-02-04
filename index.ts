@@ -1,6 +1,6 @@
 import { http } from "@serverless/cloud";
 import cors from "cors";
-import { applyGraphqlToExpressApp } from './src/graphql/server';
+import { applyGraphqlToExpressApp } from './src/graphql/Server';
 import express from "express";
 import cookieParser from "cookie-parser";
 import { AuthMiddleware } from "./src/service/auth/Middleware";
