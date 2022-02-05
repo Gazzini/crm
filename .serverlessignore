@@ -1,0 +1,12 @@
+node_modules/@types/**
+node_modules/@graphql-codegen/**
+node_modules/prisma/**
+node_modules/@prisma/engines/**
+node_modules/.prisma/client/libquery_engine-debian*
+node_modules/typescript/**
+node_modules/rxjs/**
+node_modules/listr/**
+node_modules/@jest/**
+
+node_modules/@babel/**
+node_modules/lodash/**
